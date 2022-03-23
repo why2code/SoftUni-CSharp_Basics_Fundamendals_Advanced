@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharsInRange", "CharsInRang
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordValidator", "PasswordValidator\PasswordValidator.csproj", "{9349942C-1A03-4D83-8351-CE188B7008F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddAndSubtract", "AddAndSubtract\AddAndSubtract.csproj", "{27E46093-75C3-4FD0-A460-5799536AC6A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddleCharacters", "MiddleCharacters\MiddleCharacters.csproj", "{A26EEF0B-08FC-411B-B3C4-16EBC02BB994}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{9349942C-1A03-4D83-8351-CE188B7008F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9349942C-1A03-4D83-8351-CE188B7008F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9349942C-1A03-4D83-8351-CE188B7008F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27E46093-75C3-4FD0-A460-5799536AC6A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27E46093-75C3-4FD0-A460-5799536AC6A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27E46093-75C3-4FD0-A460-5799536AC6A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27E46093-75C3-4FD0-A460-5799536AC6A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A26EEF0B-08FC-411B-B3C4-16EBC02BB994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A26EEF0B-08FC-411B-B3C4-16EBC02BB994}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A26EEF0B-08FC-411B-B3C4-16EBC02BB994}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A26EEF0B-08FC-411B-B3C4-16EBC02BB994}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
