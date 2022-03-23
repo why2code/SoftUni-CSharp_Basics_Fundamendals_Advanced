@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddAndSubtract", "AddAndSub
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddleCharacters", "MiddleCharacters\MiddleCharacters.csproj", "{A26EEF0B-08FC-411B-B3C4-16EBC02BB994}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NxNMatrix", "NxNMatrix\NxNMatrix.csproj", "{25655BAB-A183-4FE6-9C81-8367C9F89BA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactorialDivision", "FactorialDivision\FactorialDivision.csproj", "{D0777726-B925-4912-AB8B-0FEF1A48EBC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{A26EEF0B-08FC-411B-B3C4-16EBC02BB994}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A26EEF0B-08FC-411B-B3C4-16EBC02BB994}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A26EEF0B-08FC-411B-B3C4-16EBC02BB994}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25655BAB-A183-4FE6-9C81-8367C9F89BA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25655BAB-A183-4FE6-9C81-8367C9F89BA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25655BAB-A183-4FE6-9C81-8367C9F89BA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25655BAB-A183-4FE6-9C81-8367C9F89BA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0777726-B925-4912-AB8B-0FEF1A48EBC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0777726-B925-4912-AB8B-0FEF1A48EBC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0777726-B925-4912-AB8B-0FEF1A48EBC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0777726-B925-4912-AB8B-0FEF1A48EBC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
