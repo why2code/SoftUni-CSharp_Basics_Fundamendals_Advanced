@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaesarCipher", "CaesarCiphe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiplyBigNumber", "MultiplyBigNumber\MultiplyBigNumber.csproj", "{22D48971-6323-43FB-AC42-C943B97CFCDC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReplaceRepeatingChars", "ReplaceRepeatingChars\ReplaceRepeatingChars.csproj", "{82F77710-E879-4033-ADE7-7A3592425188}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringExplosion", "StringExplosion\StringExplosion.csproj", "{3E8D7360-A8F7-46B9-AB2A-BB81E92DA07C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{22D48971-6323-43FB-AC42-C943B97CFCDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22D48971-6323-43FB-AC42-C943B97CFCDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22D48971-6323-43FB-AC42-C943B97CFCDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82F77710-E879-4033-ADE7-7A3592425188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82F77710-E879-4033-ADE7-7A3592425188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82F77710-E879-4033-ADE7-7A3592425188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82F77710-E879-4033-ADE7-7A3592425188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E8D7360-A8F7-46B9-AB2A-BB81E92DA07C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E8D7360-A8F7-46B9-AB2A-BB81E92DA07C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E8D7360-A8F7-46B9-AB2A-BB81E92DA07C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E8D7360-A8F7-46B9-AB2A-BB81E92DA07C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
