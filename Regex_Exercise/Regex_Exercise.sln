@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractEmails", "ExtractEma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Furniture", "Furniture\Furniture.csproj", "{6208F892-9249-4E3B-960A-599633EDBCA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Race", "Race\Race.csproj", "{5D98ACC4-59DD-40DF-9DE1-C933CE401183}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6208F892-9249-4E3B-960A-599633EDBCA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6208F892-9249-4E3B-960A-599633EDBCA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6208F892-9249-4E3B-960A-599633EDBCA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D98ACC4-59DD-40DF-9DE1-C933CE401183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D98ACC4-59DD-40DF-9DE1-C933CE401183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D98ACC4-59DD-40DF-9DE1-C933CE401183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D98ACC4-59DD-40DF-9DE1-C933CE401183}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
