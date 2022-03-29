@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractEmails", "ExtractEmails\ExtractEmails.csproj", "{89D820F7-A8C4-44DC-9EA7-0CEBF5239C8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Furniture", "Furniture\Furniture.csproj", "{6208F892-9249-4E3B-960A-599633EDBCA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{89D820F7-A8C4-44DC-9EA7-0CEBF5239C8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89D820F7-A8C4-44DC-9EA7-0CEBF5239C8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89D820F7-A8C4-44DC-9EA7-0CEBF5239C8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6208F892-9249-4E3B-960A-599633EDBCA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6208F892-9249-4E3B-960A-599633EDBCA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6208F892-9249-4E3B-960A-599633EDBCA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6208F892-9249-4E3B-960A-599633EDBCA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
