@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheImitationGame", "TheImitationGame\TheImitationGame.csproj", "{37AF626A-0FBC-46B3-8F31-6403BA351517}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheImitationGame", "TheImitationGame\TheImitationGame.csproj", "{37AF626A-0FBC-46B3-8F31-6403BA351517}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdAstra", "AdAstra\AdAstra.csproj", "{A6D5A768-553C-4DB9-8846-9B7FC80A7FBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{37AF626A-0FBC-46B3-8F31-6403BA351517}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37AF626A-0FBC-46B3-8F31-6403BA351517}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37AF626A-0FBC-46B3-8F31-6403BA351517}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6D5A768-553C-4DB9-8846-9B7FC80A7FBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6D5A768-553C-4DB9-8846-9B7FC80A7FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6D5A768-553C-4DB9-8846-9B7FC80A7FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6D5A768-553C-4DB9-8846-9B7FC80A7FBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
