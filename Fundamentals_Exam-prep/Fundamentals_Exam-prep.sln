@@ -9,11 +9,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdAstra", "AdAstra\AdAstra.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThePianist", "ThePianist\ThePianist.csproj", "{1C079089-859D-4706-AF27-73B64B59E638}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordReset", "PasswordReset\PasswordReset.csproj", "{480FDD0C-4103-405D-8C0B-D1D119705D87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PasswordReset", "PasswordReset\PasswordReset.csproj", "{480FDD0C-4103-405D-8C0B-D1D119705D87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FancyBarcodes", "FancyBarcodes\FancyBarcodes.csproj", "{BC7483AF-3E00-414C-A017-21222368F278}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FancyBarcodes", "FancyBarcodes\FancyBarcodes.csproj", "{BC7483AF-3E00-414C-A017-21222368F278}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeroesOfCode", "HeroesOfCode\HeroesOfCode.csproj", "{0BE07065-7207-4AF6-A891-970217CD4115}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeroesOfCode", "HeroesOfCode\HeroesOfCode.csproj", "{0BE07065-7207-4AF6-A891-970217CD4115}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordValidator", "PasswordValidator\PasswordValidator.csproj", "{5B2BE9FE-9836-4B54-A41F-37280A401644}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageDecrypter", "MessageDecrypter\MessageDecrypter.csproj", "{8AB940BF-63F3-4063-932D-492116FFE273}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeroRecruitment", "HeroRecruitment\HeroRecruitment.csproj", "{CC2EF4A6-3515-468F-AFB4-69D7AFB4DE81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +51,18 @@ Global
 		{0BE07065-7207-4AF6-A891-970217CD4115}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BE07065-7207-4AF6-A891-970217CD4115}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BE07065-7207-4AF6-A891-970217CD4115}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B2BE9FE-9836-4B54-A41F-37280A401644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B2BE9FE-9836-4B54-A41F-37280A401644}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B2BE9FE-9836-4B54-A41F-37280A401644}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B2BE9FE-9836-4B54-A41F-37280A401644}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AB940BF-63F3-4063-932D-492116FFE273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AB940BF-63F3-4063-932D-492116FFE273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AB940BF-63F3-4063-932D-492116FFE273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AB940BF-63F3-4063-932D-492116FFE273}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC2EF4A6-3515-468F-AFB4-69D7AFB4DE81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC2EF4A6-3515-468F-AFB4-69D7AFB4DE81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC2EF4A6-3515-468F-AFB4-69D7AFB4DE81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC2EF4A6-3515-468F-AFB4-69D7AFB4DE81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
