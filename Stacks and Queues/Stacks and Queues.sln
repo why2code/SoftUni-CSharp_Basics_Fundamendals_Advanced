@@ -17,9 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FashionBoutique", "FashionB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SongsQueue", "SongsQueue\SongsQueue.csproj", "{9FD97770-FB58-4701-9A7B-CD266946E236}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalancedParenthesis", "BalancedParenthesis\BalancedParenthesis.csproj", "{54432C5C-4689-4130-A290-0BCCE43A03B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BalancedParenthesis", "BalancedParenthesis\BalancedParenthesis.csproj", "{54432C5C-4689-4130-A290-0BCCE43A03B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_BalancedParentheses", "02_BalancedParentheses\02_BalancedParentheses.csproj", "{4565743E-93D4-4FFC-A612-654747403EEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02_BalancedParentheses", "02_BalancedParentheses\02_BalancedParentheses.csproj", "{4565743E-93D4-4FFC-A612-654747403EEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTextEditor", "SimpleTextEditor\SimpleTextEditor.csproj", "{C8B78090-85A3-4B5F-B9B9-5656F4363B20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{4565743E-93D4-4FFC-A612-654747403EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4565743E-93D4-4FFC-A612-654747403EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4565743E-93D4-4FFC-A612-654747403EEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8B78090-85A3-4B5F-B9B9-5656F4363B20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B78090-85A3-4B5F-B9B9-5656F4363B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B78090-85A3-4B5F-B9B9-5656F4363B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B78090-85A3-4B5F-B9B9-5656F4363B20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
