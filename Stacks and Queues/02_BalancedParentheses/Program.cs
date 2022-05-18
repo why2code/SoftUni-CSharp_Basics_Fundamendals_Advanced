@@ -1,95 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace _02_BalancedParentheses
+namespace _08._Balanced_Parenthesis
 {
-    internal class Program
+    class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            string paranthes = Console.ReadLine();
-            Stack<char> stack = new Stack<char>();
-            bool isMatching = true;
-
-            if (paranthes.Length <= 1)
+            string input = Console.ReadLine();
+            Stack<char> parenthesStack = new Stack<char>();
+            foreach (var symbol in input)
             {
-                Console.WriteLine("NO");
-                return;
-            }
-
-            for (int i = 0; i < paranthes.Length; i++)
-            {
-
-                if (paranthes[i] == '('
-                    || paranthes[i] == '{'
-                    || paranthes[i] == '['
-                    || paranthes[i] == ' ')
+                if (parenthesStack.Any())
                 {
-                    stack.Push(paranthes[i]);
+                    char check = parenthesStack.Peek();
+                    if (check == '{' && symbol == '}')
+                    {
+                        parenthesStack.Pop();
+                        continue;
+                    }
+                    else if (check == '[' && symbol == ']')
+                    {
+                        parenthesStack.Pop();
+                        continue;
+                    }
+                    else if (check == '(' && symbol == ')')
+                    {
+                        parenthesStack.Pop();
+                        continue;
+                    }
                 }
-                else if (paranthes[i] == ')'
-                    || paranthes[i] == '}'
-                    || paranthes[i] == ']')
-                {
-
-                    char lastChar = stack.Pop();
-                    if ((paranthes[i] == ']' || paranthes[i] == '}')
-                              && paranthes[i] == (lastChar + 2))
-                    {
-                        continue;
-                    }
-                    else if ((paranthes[i] == ']' || paranthes[i] == '}')
-                              && paranthes[i] != (lastChar + 2))
-                    {
-                        isMatching = false;
-                        Console.WriteLine("NO");
-                        break;
-                    }
-                    else if (paranthes[i] == ')'
-                              && paranthes[i] == (lastChar + 1))
-                    {
-                        continue;
-                    }
-                    else if (paranthes[i] == ')'
-                              && paranthes[i] != (lastChar + 1))
-                    {
-                        isMatching = false;
-                        Console.WriteLine("NO");
-                        break;
-                    }
-                    else if (paranthes[i - 1] == ' ' //this means current position is ' ', so we check if previous was also ' '
-                        && paranthes.Length % 2 == 0)
-                    {
-                        stack.Pop();
-                        i--;
-                        continue;
-                    }
-                    else if (paranthes[i - 1] == ' ' //this means current position is ' ' and in the middle, so we continue for next check
-                        && paranthes.Length % 2 != 0)
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        isMatching = false;
-                        Console.WriteLine("NO");
-                        break;
-                    }
-
-
-                }
-                else
-                {
-                    Console.WriteLine("NO");
-                    break;
-                }
+                parenthesStack.Push(symbol);
             }
-
-            if (isMatching)
-            {
-                Console.WriteLine("YES");
-            }
-
+            Console.WriteLine(!parenthesStack.Any() ? "YES" : "NO");
         }
     }
 }
