@@ -26,8 +26,9 @@ namespace BalancedParenthesis
 
                     for (int j = paranthes.Length - 1 - i; j >= i; j--)
                     {
-                        //{ [ ( ) ] }
-                        //0 1 2 3 4 5
+                        if (i == j)
+                            continue;
+                    
                         if ((paranthes[i] == '[' || paranthes[i] == '{')
                             && paranthes[i] == (char)(paranthes[j] - 2))
                         {
@@ -39,7 +40,7 @@ namespace BalancedParenthesis
                             break;
                         }
                         else if (paranthes[i] == paranthes[j]
-                            && char.Equals(' ', paranthes[i])) // for space, ensuring no other chars besides space and (,[,{,},],)
+                            && paranthes[i] == ' ') // for space, ensuring no other chars besides space and (,[,{,},],)
                         {
                             break;
                         }
