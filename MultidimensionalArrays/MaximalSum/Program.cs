@@ -35,7 +35,7 @@ namespace MaximalSum
                 }
             }
 
-            if (maxSumValue == int.MinValue || maxSumValue == 0)
+            if (maxSumValue == int.MinValue)
             {
                 return;
             }
@@ -60,7 +60,7 @@ namespace MaximalSum
         {
             for (int i = 0; i < rows; i++)
             {
-                long[] input = Console.ReadLine().Split(splitter).Select(long.Parse).ToArray();
+                long[] input = Console.ReadLine().Split(splitter, StringSplitOptions.RemoveEmptyEntries).Select(long.Parse).ToArray();
                 for (int j = 0; j < cols; j++)
                 {
                     matrix[i, j] = input[j];
