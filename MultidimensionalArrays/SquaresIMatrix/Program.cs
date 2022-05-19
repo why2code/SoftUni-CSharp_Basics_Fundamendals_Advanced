@@ -12,7 +12,7 @@ namespace SquaresIMatrix
             int cols = ranges[1];
 
             string[,] matrix = new string[rows, cols];
-            DataFillIntoMatrix(matrix, rows, cols, " ");
+            FillDataIntoMatrix(matrix, rows, cols, " ");
 
             int squaresCounter = 0;
             for (int i = 0; i < rows - 1; i++)
@@ -32,7 +32,7 @@ namespace SquaresIMatrix
 
         }
 
-        private static void DataFillIntoMatrix(string[,] matrix, int rows, int cols, string splitter)
+        private static void FillDataIntoMatrix(string[,] matrix, int rows, int cols, string splitter)
         {
             for (int i = 0; i < rows; i++)
             {
