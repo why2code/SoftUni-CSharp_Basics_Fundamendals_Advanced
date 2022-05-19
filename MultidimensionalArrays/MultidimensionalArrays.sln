@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagonalDifference", "DiagonalDifference\DiagonalDifference.csproj", "{C6E235ED-C874-42C2-B593-528D9ACCF68F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiagonalDifference", "DiagonalDifference\DiagonalDifference.csproj", "{C6E235ED-C874-42C2-B593-528D9ACCF68F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquaresIMatrix", "SquaresIMatrix\SquaresIMatrix.csproj", "{D621D228-C044-4B25-9339-7D402EA0B1AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C6E235ED-C874-42C2-B593-528D9ACCF68F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6E235ED-C874-42C2-B593-528D9ACCF68F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6E235ED-C874-42C2-B593-528D9ACCF68F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D621D228-C044-4B25-9339-7D402EA0B1AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D621D228-C044-4B25-9339-7D402EA0B1AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D621D228-C044-4B25-9339-7D402EA0B1AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D621D228-C044-4B25-9339-7D402EA0B1AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
