@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LineNumbers", "LineNumbers\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopyBinaryFile", "CopyBinaryFile\CopyBinaryFile.csproj", "{6EC37538-D5AC-4C52-BD13-6F9DCE6037F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encrypt_DecryptFile_BasicXor", "Encrypt_DecryptFile_BasicXor\Encrypt_DecryptFile_BasicXor.csproj", "{7308A0BE-E2C7-4126-8A3F-3B88A270411E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6EC37538-D5AC-4C52-BD13-6F9DCE6037F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EC37538-D5AC-4C52-BD13-6F9DCE6037F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EC37538-D5AC-4C52-BD13-6F9DCE6037F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7308A0BE-E2C7-4126-8A3F-3B88A270411E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7308A0BE-E2C7-4126-8A3F-3B88A270411E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7308A0BE-E2C7-4126-8A3F-3B88A270411E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7308A0BE-E2C7-4126-8A3F-3B88A270411E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
