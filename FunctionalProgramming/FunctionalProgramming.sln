@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.ActionPrint", "01.ActionPrint\01.ActionPrint.csproj", "{D4B94D2D-0C93-4023-A826-89357A8D9436}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.KnigtsOfHonor", "02.KnigtsOfHonor\02.KnigtsOfHonor.csproj", "{8E5BBE4F-F15D-4DCB-8569-59FAE6BE0DFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D4B94D2D-0C93-4023-A826-89357A8D9436}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4B94D2D-0C93-4023-A826-89357A8D9436}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4B94D2D-0C93-4023-A826-89357A8D9436}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E5BBE4F-F15D-4DCB-8569-59FAE6BE0DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E5BBE4F-F15D-4DCB-8569-59FAE6BE0DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E5BBE4F-F15D-4DCB-8569-59FAE6BE0DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E5BBE4F-F15D-4DCB-8569-59FAE6BE0DFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
