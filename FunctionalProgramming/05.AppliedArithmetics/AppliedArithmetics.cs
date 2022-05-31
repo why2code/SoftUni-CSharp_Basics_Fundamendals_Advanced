@@ -9,53 +9,51 @@ namespace _05.AppliedArithmetics
         {
             int[] numbers = Console.ReadLine().Split().Select(int.Parse).ToArray();
 
-            //Func<int[], int[]> add(int[] nums)
-            //{
-            //    int[] res = new int[nums.Length];
-            //    for (int i = 0; i < nums.Length; i++)
-            //    {
-            //        res[i] = nums[i] + 1;
-            //    }
-            //    nums = res;
-            //    //return nums;
-            //}
+            Func<int[], int[]> addComplex
+                = (nums) =>
+            {
+                for (int i = 0; i < nums.Length; i++)
+                {
+                    nums[i] = nums[i] + 1;
+                }
+                return nums;
+            };
 
-            Func<int, int> add = x => x += 1;
-            Func<int, int> multiply = x => x * 2;
-            Func<int, int> subtract = x => x -= 1;
+            Func<int[], int[]> multiplyComplex
+             = (nums) =>
+             {
+                 for (int i = 0; i < nums.Length; i++)
+                 {
+                     nums[i] = nums[i] * 2;
+                 }
+                 return nums;
+             };
 
-            //Action<int[]> printingCollection(int[] collection)
-            //{
-            //    foreach (var item in collection)
-            //    {
-            //        Console.Write($"{item} ");
-            //    }
-            //    return null;
-            //}
+            Func<int[], int[]> subtractComplex
+            = (nums) =>
+            {
+                for (int i = 0; i < nums.Length; i++)
+                {
+                    nums[i] = nums[i] - 1;
+                }
+                return nums;
+            };
 
+           
             string command = Console.ReadLine();
             while (command != "end")
             {
                 if (command == "add")
                 {
-                    for (int i = 0; i < numbers.Length; i++)
-                    {
-                        numbers[i] = add(numbers[i]);
-                    }
+                    addComplex(numbers);
                 }
                 else if (command == "multiply")
                 {
-                    for (int i = 0; i < numbers.Length; i++)
-                    {
-                        numbers[i] = multiply(numbers[i]);
-                    }
+                    multiplyComplex(numbers);
                 }
                 else if (command == "subtract")
                 {
-                    for (int i = 0; i < numbers.Length; i++)
-                    {
-                        numbers[i] = subtract(numbers[i]);
-                    }
+                    subtractComplex(numbers);
                 }
                 else if (command == "print")
                 {
