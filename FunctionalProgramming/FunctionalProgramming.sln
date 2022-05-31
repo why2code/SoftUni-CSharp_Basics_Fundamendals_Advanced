@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.ReverseAndExclude", "06.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.PredicateForNames", "07.PredicateForNames\07.PredicateForNames.csproj", "{D4371761-2244-4A10-B2C9-935F636FDC0A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08.ListOfPredicates", "08.ListOfPredicates\08.ListOfPredicates.csproj", "{6A737048-8D74-4004-814C-4159212201AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09.PredicateParty", "09.PredicateParty\09.PredicateParty.csproj", "{C54279DB-2142-4AF1-B017-BD033754CF8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{D4371761-2244-4A10-B2C9-935F636FDC0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4371761-2244-4A10-B2C9-935F636FDC0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4371761-2244-4A10-B2C9-935F636FDC0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A737048-8D74-4004-814C-4159212201AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A737048-8D74-4004-814C-4159212201AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A737048-8D74-4004-814C-4159212201AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A737048-8D74-4004-814C-4159212201AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C54279DB-2142-4AF1-B017-BD033754CF8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C54279DB-2142-4AF1-B017-BD033754CF8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C54279DB-2142-4AF1-B017-BD033754CF8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C54279DB-2142-4AF1-B017-BD033754CF8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
