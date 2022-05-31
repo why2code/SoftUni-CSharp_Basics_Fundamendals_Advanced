@@ -1,155 +1,115 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 
-namespace _10.ThePartyReservationFilterModule
+namespace ThePartyReservationFilterModule
 {
-    internal class ThePartyReservationFilterModule
+    class Program
     {
         static void Main(string[] args)
         {
-            List<string> invitations = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).ToList();
+            var initialList = Console.ReadLine().Split().ToList();
 
-            //Creating a set for storing last position of the invitations
-            Dictionary<string, int> invitationsSet = new Dictionary<string, int>();
-
-
-            string command = Console.ReadLine();
-            while (command != "Print")
+            Func<List<string>, string, string, List<string>> funcRemoveFilter = (initialList, filterType, filterParameter) =>
             {
-                string[] commandArgs = command.Split(';', StringSplitOptions.RemoveEmptyEntries);
-                string firstCommType = commandArgs[0]; //to check for Add or Remove
-                string secondCommType = commandArgs[1]; //to check for Starts or Ends or Contains or Lenght
-                //char thirdParameter = char.Parse(commandArgs[2]); //applicable as string for all filters, except Lenght (req. int)
-
-                Func<string, char, bool> checkForStartingLetter = (invitation, letter) => invitation.StartsWith(letter);
-                Func<string, char, bool> checkForEndingLetter = (invitation, letter) => invitation.EndsWith(letter);
-                Func<string, char, bool> checkForContainingLetter = (invitation, letter) => invitation.Contains(letter);
-
-                if (firstCommType.StartsWith("Add"))
+                var listOnlyWithRemovedFilter = new List<string>();
+                if (filterType == "Starts with")
                 {
-                    if (secondCommType.StartsWith("Starts"))
+                    foreach (var person in initialList)
                     {
-                        char thirdParameter = char.Parse(commandArgs[2]); //applicable as string for all filters, except Lenght (req. int)
-                        for (int i = 0; i < invitations.Count; i++)
-                        {
-                            string name = invitations[i];
-                            if (checkForStartingLetter(name, thirdParameter))
-                            {
-                                int index = invitations.IndexOf(name);
-                                invitations.Remove(name);
-                                invitationsSet[name] = index; //storing current invitations state, assuming no exceptions
-                            }
-                        }
-
-                    }
-                    else if (secondCommType.StartsWith("Ends"))
-                    {
-                        char thirdParameter = char.Parse(commandArgs[2]); //applicable as string for all filters, except Lenght (req. int)
-
-                        for (int i = 0; i < invitations.Count; i++)
-                        {
-                            string name = invitations[i];
-                            if (checkForEndingLetter(name, thirdParameter))
-                            {
-                                int index = invitations.IndexOf(name);
-                                invitations.Remove(name);
-                                invitationsSet[name] = index; //storing current invitations state, assuming no exceptions
-                            }
-                        }
-                    }
-                    else if (secondCommType.StartsWith("Contains"))
-                    {
-                        string thirdParameter = commandArgs[2]; //applicable as string for all filters, except Lenght (req. int)
-
-                        for (int i = 0; i < invitations.Count; i++)
-                        {
-                            string name = invitations[i];
-                            if (name.Contains(thirdParameter))
-                            {
-                                int index = invitations.IndexOf(name);
-                                invitations.Remove(name);
-                                invitationsSet[name] = index; //storing current invitations state, assuming no exceptions
-                            }
-                        }
-                    }
-                    else if (secondCommType.StartsWith("Lenght"))
-                    {
-                        int lenghtThirdParameter = int.Parse(commandArgs[2]);
-                        for (int i = 0; i < invitations.Count; i++)
-                        {
-                            string name = invitations[i];
-                            if (name.Length == lenghtThirdParameter)
-                            {
-                                int index = invitations.IndexOf(name);
-                                invitations.Remove(name);
-                                invitationsSet[name] = index; //storing current invitations state, assuming no exceptions
-                            }
-                        }
-                    }
-                }
-                else if (firstCommType.StartsWith("Remove"))
-                {
-                    if (secondCommType.StartsWith("Starts"))
-                    {
-                        char thirdParameter = char.Parse(commandArgs[2]); //applicable as string for all filters, except Lenght (req. int)
-
-                        if (invitationsSet.Keys.Any(x => x.StartsWith(thirdParameter)))
-                        {
-                            string userToPushBack = string.Join("", invitationsSet.Keys.Where(x => x.StartsWith(thirdParameter)));
-                            int indexToPush = invitationsSet[userToPushBack];
-                            invitations.Insert(indexToPush, userToPushBack);
-                            invitationsSet.Remove(userToPushBack);
-                        }
-
-                    }
-                    else if (secondCommType.StartsWith("Ends"))
-                    {
-                        char thirdParameter = char.Parse(commandArgs[2]); //applicable as string for all filters, except Lenght (req. int)
-
-                        if (invitationsSet.Keys.Any(x => x.EndsWith(thirdParameter)))
-                        {
-                            string userToPushBack = string.Join("", invitationsSet.Keys.Where(x => x.EndsWith(thirdParameter)));
-                            int indexToPush = invitationsSet[userToPushBack];
-                            invitations.Insert(indexToPush, userToPushBack);
-                            invitationsSet.Remove(userToPushBack);
-                        }
-
-                    }
-                    else if (secondCommType.StartsWith("Contains"))
-                    {
-                        string thirdParameter = commandArgs[2]; //applicable as string for all filters, except Lenght (req. int)
-
-                        if (invitationsSet.Keys.Any(x => x.Contains(thirdParameter)))
-                        {
-                            string userToPushBack = string.Join("", invitationsSet.Keys.Where(x => x.Contains(thirdParameter)));
-                            int indexToPush = invitationsSet[userToPushBack];
-                            invitations.Insert(indexToPush, userToPushBack);
-                            invitationsSet.Remove(userToPushBack);
-                        }
-                    }
-                    else if (secondCommType.StartsWith("Lenght"))
-                    {
-                        int lenghtThirdParameter = int.Parse(commandArgs[2]);
-                        if (invitationsSet.Keys.Any(x => x.Length == lenghtThirdParameter))
-                        {
-                            string userToPushBack = string.Join("", invitationsSet.Keys.Where(x => x.Length == lenghtThirdParameter));
-                            int indexToPush = invitationsSet[userToPushBack];
-                            invitations.Insert(indexToPush, userToPushBack);
-                            invitationsSet.Remove(userToPushBack);
-                        }
+                        if (person.StartsWith(filterParameter)) listOnlyWithRemovedFilter.Add(person);
                     }
                 }
 
-                command = Console.ReadLine();
-            }
+                else if (filterType == "Ends with")
+                {
+                    foreach (var person in initialList)
+                    {
+                        if (person.EndsWith(filterParameter)) listOnlyWithRemovedFilter.Add(person);
+                    }
+                }
 
-            //Final print, means we have reached "Print" command and exited the While loop
-            foreach (var name in invitations)
+                else if (filterType == "Length")
+                {
+                    int length = int.Parse(filterParameter);
+                    foreach (var person in initialList)
+                    {
+                        if (person.Length == length) listOnlyWithRemovedFilter.Add(person);
+                    }
+                }
+
+                else if (filterType == "Contains")
+                {
+                    foreach (var person in initialList)
+                    {
+                        if (person.Contains(filterParameter)) listOnlyWithRemovedFilter.Add(person);
+                    }
+                }
+
+                return listOnlyWithRemovedFilter;
+            };
+
+            Func<List<string>, string, string, List<string>> funcAddFilter = (guests, filterType, filterParameter) =>
             {
-                Console.Write($"{name} ");
+                var listWithFilter = new List<string>();
+                if (filterType == "Starts with")
+                {
+                    foreach (var person in guests)
+                    {
+                        if (!person.StartsWith(filterParameter)) listWithFilter.Add(person);
+                    }
+                }
+
+                else if (filterType == "Ends with")
+                {
+                    foreach (var person in guests)
+                    {
+                        if (!person.EndsWith(filterParameter)) listWithFilter.Add(person);
+                    }
+                }
+
+                else if (filterType == "Length")
+                {
+                    int length = int.Parse(filterParameter);
+                    foreach (var person in guests)
+                    {
+                        if (person.Length != length) listWithFilter.Add(person);
+                    }
+                }
+
+                else if (filterType == "Contains")
+                {
+                    foreach (var person in guests)
+                    {
+                        if (!person.Contains(filterParameter)) listWithFilter.Add(person);
+                    }
+                }
+
+                return listWithFilter;
+            };
+
+            string input;
+            var guests = new List<string>();
+            guests.AddRange(initialList);
+            while ((input = Console.ReadLine()) != "Print")
+            {
+                string[] inputArray = input.Split(';').ToArray();
+                string command = inputArray[0];
+                string filterType = inputArray[1];
+                string filterParameter = inputArray[2];
+                if (command.StartsWith("Add"))
+                {
+                    guests = funcAddFilter(guests, filterType, filterParameter);
+                }
+
+                else if (command.StartsWith("Remove"))
+                {
+                    var listOnlyWithRemoveFilter = funcRemoveFilter(initialList, filterType, filterParameter);
+                    guests.AddRange(listOnlyWithRemoveFilter);
+                }
             }
 
+            Console.WriteLine(string.Join(" ", guests));
         }
     }
 }

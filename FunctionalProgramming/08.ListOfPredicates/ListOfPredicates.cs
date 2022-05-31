@@ -1,52 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
-namespace _08.ListOfPredicates
+namespace Rextester
 {
-    internal class ListOfPredicates
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            int endOfRange = int.Parse(Console.ReadLine());
-            List<int> dividers = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse).ToList();
+            int length = int.Parse(Console.ReadLine());
+            List<int> deviders = Console.ReadLine().Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .Distinct()
+                .ToList();
 
-            HashSet<int> numbersDevidedSuccessfully = new HashSet<int>();
-            Func<int, List<int>, HashSet<int>> verifyDividing = (endRange, dividers) =>
+            List<int> numbers = new List<int>();
+            for (int i = 1; i <= length; i++)
             {
-                HashSet<int> ints = new HashSet<int>();
-               
-                for (int i = 0; i < dividers.Count; i++)
+                if (DevidersInfo(i, deviders))
                 {
-                    if (endRange == 1 && dividers.Contains(1))
-                    {
-                        ints.Add(1);
-                        break;
-                    }
-                    for (int j = 1; j <= endRange; j++)
-                    {
-                        if (j % dividers[i] == 0)
-                        {
-                            ints.Add(j);
-                        }
-                        else
-                        {
-                            if (ints.Contains(j))
-                            {
-                                ints.Remove(j);
-                            }
-                        }
-                    }
+                    numbers.Add(i);
                 }
-                return ints;
-            };
-
-            numbersDevidedSuccessfully = verifyDividing(endOfRange, dividers);
-            foreach (var num in numbersDevidedSuccessfully)
-            {
-                Console.Write($"{num} ");
             }
+
+            Console.WriteLine(string.Join(" ", numbers));
+        }
+
+        private static bool DevidersInfo(int n, List<int> deviders)
+        {
+            bool isTrue = true;
+            foreach (int divaider in deviders)
+            {
+                if (n % divaider != 0)
+                {
+                    isTrue = false;
+                }
+            }
+            return isTrue;
         }
     }
 }
