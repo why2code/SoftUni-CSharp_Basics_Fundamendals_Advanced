@@ -8,26 +8,62 @@ namespace DefiningClasses
     {
         static void Main(string[] args)
         {
+            ////-----------------------------------------------------------------------------
+            ////06. Speed Racing 
             int num = int.Parse(Console.ReadLine());
-            List<Person> peopleOver30 = new List<Person>();
+            List<Car> cars = new List<Car>();
             for (int i = 0; i < num; i++)
             {
-                string[] input = Console.ReadLine().Split();
-                string name = input[0];
-                int age = int.Parse(input[1]);
+                string[] carData = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                string model = carData[0];
+                double fueltank = double.Parse(carData[1]);
+                double consumption = double.Parse(carData[2]);
 
-                if (age > 30)
-                {
-                    peopleOver30.Add(new Person(name, age));
-                }
+                Car currCar = new Car(model, fueltank, consumption);
+                cars.Add(currCar);
             }
 
-            peopleOver30 = peopleOver30.OrderBy(x => x.Name).ToList();
-            foreach (var person in peopleOver30)
+            string command = Console.ReadLine();
+            while (command != "End")
             {
-                Console.WriteLine($"{person.Name} - {person.Age}");
+                string[] commArgs = command.Split();
+                string driveModel = commArgs[1];
+                double kilometers = double.Parse(commArgs[2]);
+
+                Car travellingCar = cars.First(x => x.Model == driveModel);
+                travellingCar.Drive(kilometers);
+                command = Console.ReadLine();
             }
 
+            foreach (var car in cars)
+            {
+                Console.WriteLine($"{car.Model} {car.FuelAmount:f2} {car.TravelledDistance}");
+            }
+
+            ////-----------------------------------------------------------------------------
+            ////04. Opinion poll
+            //int num = int.Parse(Console.ReadLine());
+            //List<Person> peopleOver30 = new List<Person>();
+            //for (int i = 0; i < num; i++)
+            //{
+            //    string[] input = Console.ReadLine().Split();
+            //    string name = input[0];
+            //    int age = int.Parse(input[1]);
+
+            //    if (age > 30)
+            //    {
+            //        peopleOver30.Add(new Person(name, age));
+            //    }
+            //}
+
+            //peopleOver30 = peopleOver30.OrderBy(x => x.Name).ToList();
+            //foreach (var person in peopleOver30)
+            //{
+            //    Console.WriteLine($"{person.Name} - {person.Age}");
+            //}
+
+            ////-----------------------------------------------------------------------------
+            ////03. OldestFamilyMember
             //int num = int.Parse(Console.ReadLine());
             //Family familia = new Family();
 
