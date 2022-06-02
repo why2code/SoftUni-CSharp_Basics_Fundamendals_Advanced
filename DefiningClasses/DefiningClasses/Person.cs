@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DefiningClasses
 {
-    internal class Person
+    public class Person
     {
         private string name;
         private int age;
@@ -21,16 +21,25 @@ namespace DefiningClasses
             set { age = value; }
         }
 
+
         public Person()
         {
-
+            this.Name = "No name";
+            this.Age = 1;
+        }
+        public Person(int Age)
+        {
+            this.Name = "No name";
+            this.Age = Age;
         }
 
         public Person(string Name, int Age)
         {
-            this.Name = Name;
+            this.name = Name;
             this.Age = Age;
         }
+
+
     }
 
 }
