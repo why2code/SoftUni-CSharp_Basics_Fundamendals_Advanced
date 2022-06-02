@@ -7,36 +7,51 @@ namespace DefiningClasses
     public class Car
     {
         private string model;
-        private double fuelAmount;
-        private double fuelConsumptionPerKilometer;
-        private double travelledDistance;
 
-        public string Model { get; set; }
-        public double FuelAmount { get; set; }
-        public double FuelConsumptionPerKilometer { get; set; }
-        public double TravelledDistance { get; set; }
+        private Engine engine;
 
-        public Car(string model, double fuelAmount, double fuelConsumptionPerKilometer)
+        private Cargo cargo;
+
+        private List<Tires> tires;
+
+        public List<Tires> Tires
         {
-            Model = model;
-            FuelAmount = fuelAmount;
-            FuelConsumptionPerKilometer = fuelConsumptionPerKilometer;
-            TravelledDistance = 0;
+            get { return tires; }
+            set { tires = value; }
         }
 
-        public void Drive(double kilometersToTravel)
+        public Cargo Cargo
         {
-            double requiredFuel = kilometersToTravel * FuelConsumptionPerKilometer;
-            if (FuelAmount >= requiredFuel)
-            {
-                TravelledDistance += kilometersToTravel;
-                FuelAmount -= requiredFuel;
-            }
-            else
-            {
-                Console.WriteLine("Insufficient fuel for the drive");
-            }
+            get { return cargo; }
+            set { cargo = value; }
+        }
 
+        public Engine Engine
+        {
+            get { return engine; }
+            set { engine = value; }
+        }
+
+        public string Model
+        {
+            get { return model; }
+            set { model = value; }
+        }
+
+        public Car(string model, double engineSpeed, double enginePower, double cargoWeight, string cargoType,
+            double tire1Pressure, int tire1Age, double tire2Pressure, int tire2Age, double tire3Pressure, int tire3Age,
+            double tire4Pressure, int tire4Age)
+        {
+            Model = model;
+            Engine = new Engine(engineSpeed, enginePower);
+            Cargo = new Cargo(cargoType, cargoWeight);
+            Tires = new List<Tires>()
+            {
+                new Tires(tire1Age, tire1Pressure),
+                new Tires(tire2Age, tire2Pressure),
+                new Tires(tire3Age, tire3Pressure),
+                new Tires(tire4Age, tire4Pressure)
+            };
         }
     }
 }
