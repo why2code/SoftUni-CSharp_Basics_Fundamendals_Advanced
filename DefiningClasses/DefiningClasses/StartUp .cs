@@ -20,7 +20,9 @@ namespace DefiningClasses
                 familia.AddMember(memberToAddIntoFamily);
             }
 
-            familia.GetOldestMember();
+            //familia.GetOldestMember();
+            Person oldestPerson = familia.GetOldestMember();
+            Console.WriteLine($"{oldestPerson.Name} {oldestPerson.Age}");
 
         }
     }

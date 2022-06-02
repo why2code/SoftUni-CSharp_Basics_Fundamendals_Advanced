@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DefiningClasses
@@ -14,10 +15,10 @@ namespace DefiningClasses
 
         public void AddMember(Person member)
         {
-            if (!members.Contains(member))
+            if (!this.members.Contains(member))
             {
 
-                members.Add(member);
+                this.members.Add(member);
             }
             else
             {
@@ -25,28 +26,28 @@ namespace DefiningClasses
             }
         }
 
-        public void GetOldestMember()
+        public Person GetOldestMember()
         {
-            Person oldestPerson = null;
-
-            if (members.Count == 0)
-            {
-                Console.WriteLine("No members added to the Family!");
-                return;
-            }
-            else
-            {
-                oldestPerson = members[0];
-                foreach (var item in members)
-                {
-                    if (item.Age > oldestPerson.Age)
-                    {
-                        oldestPerson = item;
-                    }
-                }
-            }
-
-            Console.WriteLine($"{oldestPerson.Name} {oldestPerson.Age}");
+            int maxAgeOfMember = this.members.Max(x => x.Age);
+            return this.members.First(x => x.Age == maxAgeOfMember);
+            //Person oldestPerson = null;
+            //if (this.members.Count == 0)
+            //{
+            //    Console.WriteLine("No members added to the Family!");
+            //    return;
+            //}
+            //else
+            //{
+            //    oldestPerson = members[0];
+            //    foreach (var item in members)
+            //    {
+            //        if (item.Age > oldestPerson.Age)
+            //        {
+            //            oldestPerson = item;
+            //        }
+            //    }
+            //}
+            //Console.WriteLine($"{oldestPerson.Name} {oldestPerson.Age}");
         }
 
     }
