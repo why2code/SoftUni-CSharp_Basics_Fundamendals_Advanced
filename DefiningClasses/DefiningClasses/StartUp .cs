@@ -8,54 +8,176 @@ namespace DefiningClasses
     {
         static void Main(string[] args)
         {
-            int num = int.Parse(Console.ReadLine());
+            ////-----------------------------------------------------------------------------
+            ////08. Car Salesman
+            int numOfEngines = int.Parse(Console.ReadLine());
+            List<Engine> engines = new List<Engine>();
+            for (int i = 0; i < numOfEngines; i++)
+            {
+                //"{model} {power} {displacement} {efficiency}"
+                string[] input = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                string model = input[0];
+                int power = int.Parse(input[1]);
+                Engine currEngine = new Engine(model, power);
+                if (input.Length == 4)
+                {
+                    double displacement = double.Parse(input[2]);
+                    string efficiency = input[3];
+                    currEngine.Displacement = displacement;
+                    currEngine.Efficiency = efficiency;
+                }
+                else if (input.Length == 3)
+                {
+                    string elementThree = input[2];
+                    double displacement = double.MinValue;
+                    if (double.TryParse(elementThree, out displacement))
+                    {
+                        displacement = double.Parse(elementThree);
+                        currEngine.Displacement = displacement;
+                    }
+                    else
+                    {
+                        string efficiency = elementThree;
+                        currEngine.Efficiency = efficiency;
+                    }
+                }
+
+                engines.Add(currEngine);
+            }
+
+            int numOfCars = int.Parse(Console.ReadLine());
             List<Car> cars = new List<Car>();
-            for (int i = 0; i < num; i++)
+            for (int i = 0; i < numOfCars; i++)
             {
-                string[] commandArgs = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                string model = commandArgs[0];
-                double engineSpeed = double.Parse(commandArgs[1]);
-                double enginePower = double.Parse(commandArgs[2]);
-                double cargoWeight = double.Parse(commandArgs[3]);
-                string cargoType = commandArgs[4];
-                double tire1Pressure = double.Parse(commandArgs[5]);
-                int tire1Age = int.Parse(commandArgs[6]);
-                double tire2Pressure = double.Parse(commandArgs[7]);
-                int tire2Age = int.Parse(commandArgs[8]);
-                double tire3Pressure = double.Parse(commandArgs[9]);
-                int tire3Age = int.Parse(commandArgs[10]);
-                double tire4Pressure = double.Parse(commandArgs[11]);
-                int tire4Age = int.Parse(commandArgs[12]);
+                string[] inputForCars = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                string carModel = inputForCars[0];
+                string engineName = inputForCars[1];
+                Engine carEngine = engines.First(x => x.Model == engineName);
 
-                cars.Add(new Car(model,engineSpeed,enginePower,cargoWeight,cargoType,tire1Pressure,tire1Age,tire2Pressure,tire2Age,
-                    tire3Pressure,tire3Age,tire4Pressure, tire4Age));
-            }
+                Car currentCar = new Car(carModel, carEngine);
 
-            string lastCommand = Console.ReadLine();
-            if (lastCommand == "fragile")
-            {
-                string requiredCargoType = "fragile";
-                List<Car> searchedCars = cars.FindAll(x => x.Cargo.Type == requiredCargoType);
-                foreach (var car in searchedCars)
+                if (inputForCars.Length == 4)
                 {
-                    if (car.Tires.Any(x => x.Pressure < 1))
+                    int carWeight = int.Parse(inputForCars[2]);
+                    string color = inputForCars[3];
+                    currentCar.Weight = carWeight;
+                    currentCar.Color = color;
+                }
+                else if (inputForCars.Length == 3)
+                {
+                    string elementThree = inputForCars[2];
+                    int weight = int.MinValue;
+                    if (int.TryParse(elementThree, out weight))
                     {
-                        Console.WriteLine(car.Model);
+                        weight = int.Parse(elementThree);
+                        currentCar.Weight = weight;
+                    }
+                    else
+                    {
+                        string color = elementThree;
+                        currentCar.Color = color;
                     }
                 }
+                cars.Add(currentCar);
             }
-            else if (lastCommand == "flammable")
+
+            foreach (var car in cars)
             {
-                string requiredCargoType = "flammable";
-                List<Car> searchedCars = cars.FindAll(x => x.Cargo.Type == requiredCargoType);
-                foreach (var car in searchedCars)
+                Console.WriteLine($"{car.Model}:");
+                Console.WriteLine($"  {car.Engine.Model}:");
+                Console.WriteLine($"    Power: {car.Engine.Power}");
+
+                //optional prints for Engine -> displacement
+                if (car.Engine.Displacement != double.MinValue)
                 {
-                    if (car.Engine.Power > 250)
-                    {
-                        Console.WriteLine(car.Model);
-                    }
+                    Console.WriteLine($"    Displacement: {car.Engine.Displacement}");
+                }
+                else
+                {
+                    Console.WriteLine($"    Displacement: n/a");
+                }
+
+                //optional prints for Engine -> efficiency
+                if (car.Engine.Efficiency != null)
+                {
+                    Console.WriteLine($"    Efficiency: {car.Engine.Efficiency}");
+                }
+                else
+                {
+                    Console.WriteLine($"    Efficiency: n/a");
+                }
+
+                //optional prints for Car -> weight
+                if (car.Weight != int.MinValue)
+                {
+                    Console.WriteLine($"  Weight: {car.Weight}");
+                }
+                else
+                {
+                    Console.WriteLine($"  Weight: n/a");
+                }
+
+                //optional prints for Car -> color
+                if (car.Color != null)
+                {
+                    Console.WriteLine($"  Color: {car.Color}");
+                }
+                else
+                {
+                    Console.WriteLine($"  Color: n/a");
                 }
             }
+
+            ////-----------------------------------------------------------------------------
+            ////07. Raw Data
+            //int num = int.Parse(Console.ReadLine());
+            //List<CarRawData> cars = new List<CarRawData>();
+            //for (int i = 0; i < num; i++)
+            //{
+            //    string[] commandArgs = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            //    string model = commandArgs[0];
+            //    double engineSpeed = double.Parse(commandArgs[1]);
+            //    double enginePower = double.Parse(commandArgs[2]);
+            //    double cargoWeight = double.Parse(commandArgs[3]);
+            //    string cargoType = commandArgs[4];
+            //    double tire1Pressure = double.Parse(commandArgs[5]);
+            //    int tire1Age = int.Parse(commandArgs[6]);
+            //    double tire2Pressure = double.Parse(commandArgs[7]);
+            //    int tire2Age = int.Parse(commandArgs[8]);
+            //    double tire3Pressure = double.Parse(commandArgs[9]);
+            //    int tire3Age = int.Parse(commandArgs[10]);
+            //    double tire4Pressure = double.Parse(commandArgs[11]);
+            //    int tire4Age = int.Parse(commandArgs[12]);
+
+            //    cars.Add(new CarRawData(model,engineSpeed,enginePower,cargoWeight,cargoType,tire1Pressure,tire1Age,tire2Pressure,tire2Age,
+            //        tire3Pressure,tire3Age,tire4Pressure, tire4Age));
+            //}
+
+            //string lastCommand = Console.ReadLine();
+            //if (lastCommand == "fragile")
+            //{
+            //    string requiredCargoType = "fragile";
+            //    List<CarRawData> searchedCars = cars.FindAll(x => x.Cargo.Type == requiredCargoType);
+            //    foreach (var car in searchedCars)
+            //    {
+            //        if (car.Tires.Any(x => x.Pressure < 1))
+            //        {
+            //            Console.WriteLine(car.Model);
+            //        }
+            //    }
+            //}
+            //else if (lastCommand == "flammable")
+            //{
+            //    string requiredCargoType = "flammable";
+            //    List<CarRawData> searchedCars = cars.FindAll(x => x.Cargo.Type == requiredCargoType);
+            //    foreach (var car in searchedCars)
+            //    {
+            //        if (car.Engine.Power > 250)
+            //        {
+            //            Console.WriteLine(car.Model);
+            //        }
+            //    }
+            //}
 
             ////-----------------------------------------------------------------------------
             ////06. Speed Racing 

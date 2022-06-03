@@ -6,24 +6,67 @@ namespace DefiningClasses
 {
     public class Engine
     {
-        private double speed;
-        private double power;
+      
+        private string model;
 
-        public double Speed
+        private int power;
+
+        private double displacement;
+
+        private string efficiency;
+
+        public string Efficiency
         {
-            get { return speed; }
-            set { speed = value; }
+            get { return efficiency; }
+            set { efficiency = value; }
         }
-        public double Power
+
+        public double Displacement
+        {
+            get { return displacement; }
+            set { displacement = value; }
+        }
+
+        public int Power
         {
             get { return power; }
             set { power = value; }
         }
 
-        public Engine(double speed, double power)
+        public string Model
         {
-            Speed = speed;
+            get { return model; }
+            set { model = value; }
+        }
+
+        public Engine(string model, int power)
+        {
+            Model = model;
             Power = power;
+            Displacement = double.MinValue;
+        }
+
+        public Engine(string model, int power, double displacement, string efficiency)
+        {
+            Model = model;
+            Power = power;
+            Displacement = displacement;
+            Efficiency = efficiency;
+        }
+
+        public Engine(string model, int power, double displacement)
+        {
+            Model = model;
+            Power = power;
+            Displacement = displacement;
+        }
+
+        public Engine(string model, int power, string efficiency)
+        {
+            Model = model;
+            Power = power;
+            Efficiency=efficiency;
+            Displacement = double.MinValue;
         }
     }
 }

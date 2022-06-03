@@ -8,28 +8,28 @@ namespace DefiningClasses
     {
         private string model;
 
+        private int weight;
+
+        private string color;
+
         private Engine engine;
-
-        private Cargo cargo;
-
-        private List<Tires> tires;
-
-        public List<Tires> Tires
-        {
-            get { return tires; }
-            set { tires = value; }
-        }
-
-        public Cargo Cargo
-        {
-            get { return cargo; }
-            set { cargo = value; }
-        }
 
         public Engine Engine
         {
             get { return engine; }
             set { engine = value; }
+        }
+
+        public string Color
+        {
+            get { return color; }
+            set { color = value; }
+        }
+
+        public int Weight
+        {
+            get { return weight; }
+            set { weight = value; }
         }
 
         public string Model
@@ -38,20 +38,34 @@ namespace DefiningClasses
             set { model = value; }
         }
 
-        public Car(string model, double engineSpeed, double enginePower, double cargoWeight, string cargoType,
-            double tire1Pressure, int tire1Age, double tire2Pressure, int tire2Age, double tire3Pressure, int tire3Age,
-            double tire4Pressure, int tire4Age)
+        public Car(string model, Engine engine)
         {
             Model = model;
-            Engine = new Engine(engineSpeed, enginePower);
-            Cargo = new Cargo(cargoType, cargoWeight);
-            Tires = new List<Tires>()
-            {
-                new Tires(tire1Age, tire1Pressure),
-                new Tires(tire2Age, tire2Pressure),
-                new Tires(tire3Age, tire3Pressure),
-                new Tires(tire4Age, tire4Pressure)
-            };
+            Engine = engine;
+            Weight = int.MinValue;
+        }
+
+        public Car(string model, Engine engine, int weight, string color)
+        {
+            Model = model;
+            Engine = engine;
+            Weight = weight;
+            Color = color;
+        }
+
+        public Car(string model, Engine engine, int weight)
+        {
+            Model = model;
+            Engine = engine;
+            Weight = weight;
+        }
+
+        public Car(string model, Engine engine, string color)
+        {
+            Model = model;
+            Engine = engine;
+            Color = color;
+            Weight = int.MinValue;
         }
     }
 }
