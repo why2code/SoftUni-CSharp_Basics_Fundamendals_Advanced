@@ -8,125 +8,183 @@ namespace DefiningClasses
     {
         static void Main(string[] args)
         {
+            //09. Pokemon Trainer
+            string commands = Console.ReadLine();
+            List<Trainer> trainersList = new List<Trainer>();
+
+            while (commands != "Tournament")
+            {
+                string[] commArgs = commands.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                string trainerName = commArgs[0];
+                string pokemonName = commArgs[1];
+                string pokemonElement = commArgs[2];
+                int pokemonHealth = int.Parse(commArgs[3]);
+
+                Pokemon currPokemon = new Pokemon(pokemonName, pokemonElement, pokemonHealth);
+                if (!trainersList.Any(x => x.Name == trainerName))
+                {
+                    List<Pokemon> pokemonList = new List<Pokemon>();
+                    pokemonList.Add(currPokemon);
+                    Trainer currTrainer = new Trainer(trainerName, pokemonList);
+                    currTrainer.Pokemons = pokemonList;
+                    trainersList.Add(currTrainer);
+
+                }
+                else
+                {
+                    //amend trainerlist by adding new pokemon to the existing trainer
+                    var currPokemonsList = trainersList.First(x => x.Name == trainerName).Pokemons;
+                    currPokemonsList.Add(currPokemon);
+                    trainersList.First(x => x.Name == trainerName).Pokemons = currPokemonsList;
+                }
+
+                commands = Console.ReadLine();
+            }
+
+            string actionCommand = Console.ReadLine();
+            while (actionCommand != "End")
+            {
+                if (actionCommand == "Fire")
+                {
+                    ValidateExistingPokemon(trainersList, actionCommand);
+                }
+                else if (actionCommand == "Water")
+                {
+                    ValidateExistingPokemon(trainersList, actionCommand);
+                }
+                else if (actionCommand == "Electricity")
+                {
+                    ValidateExistingPokemon(trainersList, actionCommand);
+                }
+
+                actionCommand = Console.ReadLine();
+            }
+
+            trainersList = trainersList.OrderByDescending(x => x.Badges).ToList();
+            foreach (var trainer in trainersList)
+            {
+                Console.WriteLine($"{trainer.Name} {trainer.Badges} {trainer.Pokemons.Count}");
+            }
+
             ////-----------------------------------------------------------------------------
             ////08. Car Salesman
-            int numOfEngines = int.Parse(Console.ReadLine());
-            List<Engine> engines = new List<Engine>();
-            for (int i = 0; i < numOfEngines; i++)
-            {
-                //"{model} {power} {displacement} {efficiency}"
-                string[] input = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                string model = input[0];
-                int power = int.Parse(input[1]);
-                Engine currEngine = new Engine(model, power);
-                if (input.Length == 4)
-                {
-                    double displacement = double.Parse(input[2]);
-                    string efficiency = input[3];
-                    currEngine.Displacement = displacement;
-                    currEngine.Efficiency = efficiency;
-                }
-                else if (input.Length == 3)
-                {
-                    string elementThree = input[2];
-                    double displacement = double.MinValue;
-                    if (double.TryParse(elementThree, out displacement))
-                    {
-                        displacement = double.Parse(elementThree);
-                        currEngine.Displacement = displacement;
-                    }
-                    else
-                    {
-                        string efficiency = elementThree;
-                        currEngine.Efficiency = efficiency;
-                    }
-                }
+            //int numOfEngines = int.Parse(Console.ReadLine());
+            //List<Engine> engines = new List<Engine>();
+            //for (int i = 0; i < numOfEngines; i++)
+            //{
+            //    //"{model} {power} {displacement} {efficiency}"
+            //    string[] input = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            //    string model = input[0];
+            //    int power = int.Parse(input[1]);
+            //    Engine currEngine = new Engine(model, power);
+            //    if (input.Length == 4)
+            //    {
+            //        double displacement = double.Parse(input[2]);
+            //        string efficiency = input[3];
+            //        currEngine.Displacement = displacement;
+            //        currEngine.Efficiency = efficiency;
+            //    }
+            //    else if (input.Length == 3)
+            //    {
+            //        string elementThree = input[2];
+            //        double displacement = double.MinValue;
+            //        if (double.TryParse(elementThree, out displacement))
+            //        {
+            //            displacement = double.Parse(elementThree);
+            //            currEngine.Displacement = displacement;
+            //        }
+            //        else
+            //        {
+            //            string efficiency = elementThree;
+            //            currEngine.Efficiency = efficiency;
+            //        }
+            //    }
 
-                engines.Add(currEngine);
-            }
+            //    engines.Add(currEngine);
+            //}
 
-            int numOfCars = int.Parse(Console.ReadLine());
-            List<Car> cars = new List<Car>();
-            for (int i = 0; i < numOfCars; i++)
-            {
-                string[] inputForCars = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                string carModel = inputForCars[0];
-                string engineName = inputForCars[1];
-                Engine carEngine = engines.First(x => x.Model == engineName);
+            //int numOfCars = int.Parse(Console.ReadLine());
+            //List<Car> cars = new List<Car>();
+            //for (int i = 0; i < numOfCars; i++)
+            //{
+            //    string[] inputForCars = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            //    string carModel = inputForCars[0];
+            //    string engineName = inputForCars[1];
+            //    Engine carEngine = engines.First(x => x.Model == engineName);
 
-                Car currentCar = new Car(carModel, carEngine);
+            //    Car currentCar = new Car(carModel, carEngine);
 
-                if (inputForCars.Length == 4)
-                {
-                    int carWeight = int.Parse(inputForCars[2]);
-                    string color = inputForCars[3];
-                    currentCar.Weight = carWeight;
-                    currentCar.Color = color;
-                }
-                else if (inputForCars.Length == 3)
-                {
-                    string elementThree = inputForCars[2];
-                    int weight = int.MinValue;
-                    if (int.TryParse(elementThree, out weight))
-                    {
-                        weight = int.Parse(elementThree);
-                        currentCar.Weight = weight;
-                    }
-                    else
-                    {
-                        string color = elementThree;
-                        currentCar.Color = color;
-                    }
-                }
-                cars.Add(currentCar);
-            }
+            //    if (inputForCars.Length == 4)
+            //    {
+            //        int carWeight = int.Parse(inputForCars[2]);
+            //        string color = inputForCars[3];
+            //        currentCar.Weight = carWeight;
+            //        currentCar.Color = color;
+            //    }
+            //    else if (inputForCars.Length == 3)
+            //    {
+            //        string elementThree = inputForCars[2];
+            //        int weight = int.MinValue;
+            //        if (int.TryParse(elementThree, out weight))
+            //        {
+            //            weight = int.Parse(elementThree);
+            //            currentCar.Weight = weight;
+            //        }
+            //        else
+            //        {
+            //            string color = elementThree;
+            //            currentCar.Color = color;
+            //        }
+            //    }
+            //    cars.Add(currentCar);
+            //}
 
-            foreach (var car in cars)
-            {
-                Console.WriteLine($"{car.Model}:");
-                Console.WriteLine($"  {car.Engine.Model}:");
-                Console.WriteLine($"    Power: {car.Engine.Power}");
+            //foreach (var car in cars)
+            //{
+            //    Console.WriteLine($"{car.Model}:");
+            //    Console.WriteLine($"  {car.Engine.Model}:");
+            //    Console.WriteLine($"    Power: {car.Engine.Power}");
 
-                //optional prints for Engine -> displacement
-                if (car.Engine.Displacement != double.MinValue)
-                {
-                    Console.WriteLine($"    Displacement: {car.Engine.Displacement}");
-                }
-                else
-                {
-                    Console.WriteLine($"    Displacement: n/a");
-                }
+            //    //optional prints for Engine -> displacement
+            //    if (car.Engine.Displacement != double.MinValue)
+            //    {
+            //        Console.WriteLine($"    Displacement: {car.Engine.Displacement}");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine($"    Displacement: n/a");
+            //    }
 
-                //optional prints for Engine -> efficiency
-                if (car.Engine.Efficiency != null)
-                {
-                    Console.WriteLine($"    Efficiency: {car.Engine.Efficiency}");
-                }
-                else
-                {
-                    Console.WriteLine($"    Efficiency: n/a");
-                }
+            //    //optional prints for Engine -> efficiency
+            //    if (car.Engine.Efficiency != null)
+            //    {
+            //        Console.WriteLine($"    Efficiency: {car.Engine.Efficiency}");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine($"    Efficiency: n/a");
+            //    }
 
-                //optional prints for Car -> weight
-                if (car.Weight != int.MinValue)
-                {
-                    Console.WriteLine($"  Weight: {car.Weight}");
-                }
-                else
-                {
-                    Console.WriteLine($"  Weight: n/a");
-                }
+            //    //optional prints for Car -> weight
+            //    if (car.Weight != int.MinValue)
+            //    {
+            //        Console.WriteLine($"  Weight: {car.Weight}");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine($"  Weight: n/a");
+            //    }
 
-                //optional prints for Car -> color
-                if (car.Color != null)
-                {
-                    Console.WriteLine($"  Color: {car.Color}");
-                }
-                else
-                {
-                    Console.WriteLine($"  Color: n/a");
-                }
-            }
+            //    //optional prints for Car -> color
+            //    if (car.Color != null)
+            //    {
+            //        Console.WriteLine($"  Color: {car.Color}");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine($"  Color: n/a");
+            //    }
+            //}
 
             ////-----------------------------------------------------------------------------
             ////07. Raw Data
@@ -252,6 +310,37 @@ namespace DefiningClasses
             //Person oldestPerson = familia.GetOldestMember();
             //Console.WriteLine($"{oldestPerson.Name} {oldestPerson.Age}");
 
+        }
+
+        private static void ValidateExistingPokemon(List<Trainer> trainersList, string actionCommand)
+        {
+            foreach (Trainer trainer in trainersList)
+            {
+                if (trainer.Pokemons.Any(x => x.Element == actionCommand))
+                {
+                    trainer.Badges += 1;
+                }
+                else
+                {
+                    for (int i = 0; i < trainer.Pokemons.Count; i++)
+                    {
+                        Pokemon pokemon = trainer.Pokemons[i];
+                        //just checking if 0 pokemons to avoid an exception
+                        if (trainer.Pokemons.Count == 0)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            pokemon.Health -= 10;
+                            if (pokemon.Health <= 0)
+                            {
+                                trainer.Pokemons.Remove(pokemon);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
