@@ -9,14 +9,14 @@ namespace Generics
         static void Main(string[] args)
         {
             //===============================================================================
-            //3. Generic Swap Method String 
+            //4. Generic Swap Method Integer 
             int n = int.Parse(Console.ReadLine());
-            var allBoxes = new List<Box<string>>();
+            var allBoxes = new List<Box<int>>();
             for (int i = 0; i < n; i++)
             {
-                var box = new Box<string>(Console.ReadLine());
+                var box = new Box<int>(int.Parse(Console.ReadLine()));
                 allBoxes.Add(box);
-                
+
             }
 
             int[] indexes = Console.ReadLine().Split().Select(int.Parse).ToArray();
@@ -28,6 +28,28 @@ namespace Generics
             {
                 Console.WriteLine(box.ToString());
             }
+
+
+            ////===============================================================================
+            ////3. Generic Swap Method String 
+            //int n = int.Parse(Console.ReadLine());
+            //var allBoxes = new List<Box<string>>();
+            //for (int i = 0; i < n; i++)
+            //{
+            //    var box = new Box<string>(Console.ReadLine());
+            //    allBoxes.Add(box);
+
+            //}
+
+            //int[] indexes = Console.ReadLine().Split().Select(int.Parse).ToArray();
+            //int index1 = indexes[0];
+            //int index2 = indexes[1];
+            //var swappedBoxes = SwapIndexes(allBoxes, index1, index2);
+
+            //foreach (var box in swappedBoxes)
+            //{
+            //    Console.WriteLine(box.ToString());
+            //}
 
             ////===============================================================================
             ////2. Generic Box of Integers
