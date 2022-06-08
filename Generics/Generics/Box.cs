@@ -18,5 +18,10 @@ namespace Generics
             return $"{value.GetType().FullName}: {value}";
         }
 
+       
+
+
     }
+
+
 }
