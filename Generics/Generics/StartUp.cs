@@ -10,18 +10,31 @@ namespace Generics
         {
 
             //===============================================================================
-            //5. Generic Count Method String  
+            //6. Generic Count Method String  
             int n = int.Parse(Console.ReadLine());
-            var elements = new List<string>();
+            var elements = new List<double>();
             for (int i = 0; i < n; i++)
             {
-                string currElement = Console.ReadLine();
+                double currElement = double.Parse(Console.ReadLine());
                 elements.Add(currElement);
             }
 
-            string comparer = Console.ReadLine();
-            Console.WriteLine(CountOfGreaterThan<string>(elements, comparer));
-            
+            double comparer = double.Parse(Console.ReadLine());
+            Console.WriteLine(CountOfGreaterThan<double>(elements, comparer));
+
+            ////===============================================================================
+            ////5. Generic Count Method String  
+            //int n = int.Parse(Console.ReadLine());
+            //var elements = new List<string>();
+            //for (int i = 0; i < n; i++)
+            //{
+            //    string currElement = Console.ReadLine();
+            //    elements.Add(currElement);
+            //}
+
+            //string comparer = Console.ReadLine();
+            //Console.WriteLine(CountOfGreaterThan<string>(elements, comparer));
+
 
             ////===============================================================================
             ////4. Generic Swap Method Integer 
