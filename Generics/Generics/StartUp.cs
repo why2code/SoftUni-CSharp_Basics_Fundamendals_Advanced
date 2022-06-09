@@ -8,19 +8,39 @@ namespace Generics
     {
         static void Main(string[] args)
         {
-
             //===============================================================================
-            //6. Generic Count Method String  
-            int n = int.Parse(Console.ReadLine());
-            var elements = new List<double>();
-            for (int i = 0; i < n; i++)
-            {
-                double currElement = double.Parse(Console.ReadLine());
-                elements.Add(currElement);
-            }
+            //7. Tuple
+            string[] personDetails = Console.ReadLine().Split();
+            string name = $"{personDetails[0]} {personDetails[1]}";
+            string city = personDetails[2];
+            Tuple<string, string> person = new Tuple<string, string>(name, city);
 
-            double comparer = double.Parse(Console.ReadLine());
-            Console.WriteLine(CountOfGreaterThan<double>(elements, comparer));
+            string[] beerForPerson = Console.ReadLine().Split();
+            string personsName = beerForPerson[0];
+            int litersOfBeer = int.Parse(beerForPerson[1]);
+            Tuple<string, int> beerDetails = new Tuple<string, int>(personsName, litersOfBeer);
+
+            string[] numDetails = Console.ReadLine().Split();
+            int firstNumber = int.Parse(numDetails[0]);
+            double secondNumber = double.Parse(numDetails[1]);
+            Tuple<int, double> numbers = new Tuple<int, double>(firstNumber, secondNumber);
+
+            Console.WriteLine(person);
+            Console.WriteLine(beerDetails);
+            Console.WriteLine(numbers);
+
+            ////===============================================================================
+            ////6. Generic Count Method String  
+            //int n = int.Parse(Console.ReadLine());
+            //var elements = new List<double>();
+            //for (int i = 0; i < n; i++)
+            //{
+            //    double currElement = double.Parse(Console.ReadLine());
+            //    elements.Add(currElement);
+            //}
+
+            //double comparer = double.Parse(Console.ReadLine());
+            //Console.WriteLine(CountOfGreaterThan<double>(elements, comparer));
 
             ////===============================================================================
             ////5. Generic Count Method String  
