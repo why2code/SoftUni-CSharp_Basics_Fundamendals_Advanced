@@ -8,26 +8,53 @@ namespace Generics
     {
         static void Main(string[] args)
         {
+
             //===============================================================================
-            //7. Tuple
-            string[] personDetails = Console.ReadLine().Split();
+            //8. Threeuple
+            string firstInputForPerson = Console.ReadLine();
+            string[] personDetails = firstInputForPerson.Split();
             string name = $"{personDetails[0]} {personDetails[1]}";
-            string city = personDetails[2];
-            Tuple<string, string> person = new Tuple<string, string>(name, city);
+            string address = personDetails[2];
+            int townIndex = name.Length + 1 + address.Length + 1; //To be used to capture town (single word or multiple words)
+            string town = firstInputForPerson.Substring(townIndex);
+            Threeuple<string, string, string> someonesAddress = new Threeuple<string, string, string>(name, address, town);
 
             string[] beerForPerson = Console.ReadLine().Split();
             string personsName = beerForPerson[0];
             int litersOfBeer = int.Parse(beerForPerson[1]);
-            Tuple<string, int> beerDetails = new Tuple<string, int>(personsName, litersOfBeer);
+            bool isDrung = beerForPerson[2] == "drunk" ? true : false;
+            Threeuple<string, int, bool> personDrunkOrNot = new Threeuple<string, int, bool>(personsName, litersOfBeer, isDrung);
 
             string[] numDetails = Console.ReadLine().Split();
-            int firstNumber = int.Parse(numDetails[0]);
-            double secondNumber = double.Parse(numDetails[1]);
-            Tuple<int, double> numbers = new Tuple<int, double>(firstNumber, secondNumber);
+            string bankersName = numDetails[0];
+            double cashBalance = double.Parse(numDetails[1]);
+            string bankName = numDetails[2];
+            Threeuple<string, double, string> bankBalanceOfPerson = new Threeuple<string, double, string>(bankersName, cashBalance, bankName);
 
-            Console.WriteLine(person);
-            Console.WriteLine(beerDetails);
-            Console.WriteLine(numbers);
+            Console.WriteLine(someonesAddress);
+            Console.WriteLine(personDrunkOrNot);
+            Console.WriteLine(bankBalanceOfPerson);
+
+            ////===============================================================================
+            ////7. Tuple
+            //string[] personDetails = Console.ReadLine().Split();
+            //string name = $"{personDetails[0]} {personDetails[1]}";
+            //string city = personDetails[2];
+            //Tuple<string, string> person = new Tuple<string, string>(name, city);
+
+            //string[] beerForPerson = Console.ReadLine().Split();
+            //string personsName = beerForPerson[0];
+            //int litersOfBeer = int.Parse(beerForPerson[1]);
+            //Tuple<string, int> beerDetails = new Tuple<string, int>(personsName, litersOfBeer);
+
+            //string[] numDetails = Console.ReadLine().Split();
+            //int firstNumber = int.Parse(numDetails[0]);
+            //double secondNumber = double.Parse(numDetails[1]);
+            //Tuple<int, double> numbers = new Tuple<int, double>(firstNumber, secondNumber);
+
+            //Console.WriteLine(person);
+            //Console.WriteLine(beerDetails);
+            //Console.WriteLine(numbers);
 
             ////===============================================================================
             ////6. Generic Count Method String  
