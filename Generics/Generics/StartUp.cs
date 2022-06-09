@@ -8,26 +8,41 @@ namespace Generics
     {
         static void Main(string[] args)
         {
+
             //===============================================================================
-            //4. Generic Swap Method Integer 
+            //5. Generic Count Method String  
             int n = int.Parse(Console.ReadLine());
-            var allBoxes = new List<Box<int>>();
+            var elements = new List<string>();
             for (int i = 0; i < n; i++)
             {
-                var box = new Box<int>(int.Parse(Console.ReadLine()));
-                allBoxes.Add(box);
-
+                string currElement = Console.ReadLine();
+                elements.Add(currElement);
             }
 
-            int[] indexes = Console.ReadLine().Split().Select(int.Parse).ToArray();
-            int index1 = indexes[0];
-            int index2 = indexes[1];
-            var swappedBoxes = SwapIndexes(allBoxes, index1, index2);
+            string comparer = Console.ReadLine();
+            Console.WriteLine(CountOfGreaterThan<string>(elements, comparer));
+            
 
-            foreach (var box in swappedBoxes)
-            {
-                Console.WriteLine(box.ToString());
-            }
+            ////===============================================================================
+            ////4. Generic Swap Method Integer 
+            //int n = int.Parse(Console.ReadLine());
+            //var allBoxes = new List<Box<int>>();
+            //for (int i = 0; i < n; i++)
+            //{
+            //    var box = new Box<int>(int.Parse(Console.ReadLine()));
+            //    allBoxes.Add(box);
+
+            //}
+
+            //int[] indexes = Console.ReadLine().Split().Select(int.Parse).ToArray();
+            //int index1 = indexes[0];
+            //int index2 = indexes[1];
+            //var swappedBoxes = SwapIndexes(allBoxes, index1, index2);
+
+            //foreach (var box in swappedBoxes)
+            //{
+            //    Console.WriteLine(box.ToString());
+            //}
 
 
             ////===============================================================================
@@ -84,6 +99,12 @@ namespace Generics
             boxes[index1] = boxes[index2];
             boxes[index2] = swapValue;
             return boxes;
+        }
+
+        public static int CountOfGreaterThan<T>(List<T> list, T toCompare)
+        where T : IComparable<T>
+        {
+            return list.Count(x => x.CompareTo(toCompare) > 0);
         }
     }
 }
