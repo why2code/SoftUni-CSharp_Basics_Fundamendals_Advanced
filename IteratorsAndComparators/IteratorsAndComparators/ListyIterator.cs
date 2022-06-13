@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace IteratorsAndComparators
 {
-    public class ListyIterator
+    public class ListyIterator :IEnumerable<string>
     {
         private List<string> elements;
         private static int internalIndex = 0;
@@ -48,6 +49,42 @@ namespace IteratorsAndComparators
                 return true;
 
             return false;
+        }
+
+        bool MoveNext()
+        {
+            return Move();
+        }
+
+        void Reset()
+        {
+            internalIndex = 0;
+        }
+
+        object? Current { get
+            {
+                return this.Elements[internalIndex];
+            } }
+
+        public void PrintAll()
+        {
+            foreach (var item in this.Elements)
+            {
+                Console.Write($"{item} ");
+            }
+            Console.WriteLine();
+        }
+        public IEnumerator<string> GetEnumerator()
+        {
+            for (int i = 0; i < this.Elements.Count; i++)
+            {
+                yield return this.Elements[i];
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
         }
     }
 }
