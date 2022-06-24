@@ -10,9 +10,8 @@ namespace TheBattleOfTheFiveArmies
             int matrixSize = int.Parse(Console.ReadLine());
 
             //Creating and filling in the matrix
-            char[,] matrix = new char[matrixSize, matrixSize];
-            FillDataIntoMatrix(matrix, matrixSize, matrixSize);
-            //bool isArmyDead = false;
+            char[][] matrix = new char[matrixSize][];
+            FillDataIntoMatrix(matrix, matrixSize);
 
             //Finding where the Army (A) is
             int[] armyStartingIndexes = FindArmyPosition(matrix);
@@ -25,8 +24,8 @@ namespace TheBattleOfTheFiveArmies
                 string direction = commandArgs[0];
                 int row = int.Parse(commandArgs[1]);
                 int col = int.Parse(commandArgs[2]);
-                matrix[row, col] = 'O';
-
+                matrix[row][col] = 'O';
+                armor -= 1;
                 //Trying to move the Army based on the provided direction.
                 //Returns same indexes (if not moved), or new indexes if the Army moved successfully.
                 //Armor is reduced by 1 in both instances. If Army moved, old position is changed to '-'.
@@ -35,52 +34,58 @@ namespace TheBattleOfTheFiveArmies
                 int newColAfterSuccessfullMove = newIndexes[1]; //same as previously or new if moved
 
                 //Verifying where Army lands after moving (if moved successfully)
-                if (matrix[newRowAfterSuccessfullMove, newColAfterSuccessfullMove] == 'O')
+                if (matrix[newRowAfterSuccessfullMove][newColAfterSuccessfullMove] == 'O')
                 {
                     armor -= 2;
                     if (armor <= 0)
                     {
-                        //isArmyDead = true;
                         Console.WriteLine($"The army was defeated at {newRowAfterSuccessfullMove};{newColAfterSuccessfullMove}.");
-                        matrix[newRowAfterSuccessfullMove, newColAfterSuccessfullMove] = 'X';
+                        matrix[newRowAfterSuccessfullMove][newColAfterSuccessfullMove] = 'X';
                         break;
                     }
                     else
                     {
-                        matrix[newRowAfterSuccessfullMove, newColAfterSuccessfullMove] = 'A';
+                        matrix[newRowAfterSuccessfullMove][newColAfterSuccessfullMove] = 'A';
                     }
                 }
-                else if (matrix[newRowAfterSuccessfullMove, newColAfterSuccessfullMove] == 'M')
+                else if (matrix[newRowAfterSuccessfullMove][newColAfterSuccessfullMove] == 'M')
                 {
                     Console.WriteLine($"The army managed to free the Middle World! Armor left: {armor}");
-                    matrix[newRowAfterSuccessfullMove, newColAfterSuccessfullMove] = '-';
+                    matrix[newRowAfterSuccessfullMove][newColAfterSuccessfullMove] = '-';
                     break;
 
                 }
-                else if (matrix[newRowAfterSuccessfullMove, newColAfterSuccessfullMove] == '-')
+                else if (matrix[newRowAfterSuccessfullMove][newColAfterSuccessfullMove] == '-')
                 {
-                    matrix[newRowAfterSuccessfullMove, newColAfterSuccessfullMove] = 'A';
+                    if (armor <= 0)
+                    {
+                        Console.WriteLine($"The army was defeated at {newRowAfterSuccessfullMove};{newColAfterSuccessfullMove}.");
+                        matrix[newRowAfterSuccessfullMove][newColAfterSuccessfullMove] = 'X';
+                        break;
+                    }
+                    matrix[newRowAfterSuccessfullMove][newColAfterSuccessfullMove] = 'A';
                 }
 
                 armyRowStartingIndex = newRowAfterSuccessfullMove;
                 armyColStartingIndex = newColAfterSuccessfullMove;
-                if (armor <= 0)
-                {
-                    Console.WriteLine($"The army was defeated at {newRowAfterSuccessfullMove};{newColAfterSuccessfullMove}.");
-                }
+
+                //if (armor <= 0)
+                //{
+                //    Console.WriteLine($"The army was defeated at {newRowAfterSuccessfullMove};{newColAfterSuccessfullMove}.");
+                //}
             }
 
             //Printing the matrix
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                for (int j = 0; j < matrix.GetLength(1); j++)
+                for (int j = 0; j < matrix[i].Length; j++)
                 {
-                    Console.Write(matrix[i, j]);
+                    Console.Write(matrix[i][j]);
                 }
                 Console.WriteLine();
             }
 
-            int[] ArmyMovingIntoField(char[,] matrix, int row, int col, string direction)
+            int[] ArmyMovingIntoField(char[][] matrix, int row, int col, string direction)
             {
                 int[] outputIndexes = new int[2];
                 int oldRow = row;
@@ -103,18 +108,18 @@ namespace TheBattleOfTheFiveArmies
                 }
 
                 if (row >= 0 && row < matrix.GetLength(0)
-                    && col >= 0 && col < matrix.GetLength(1))
+                    && col >= 0 && col < matrix[row].Length)
                 {
                     //The Army can move within the matrix (new position indexes are valid)
-                    matrix[oldRow, oldCol] = '-';
+                    matrix[oldRow][oldCol] = '-';
                     outputIndexes[0] = row;
                     outputIndexes[1] = col;
-                    armor -= 1;
+
                 }
                 else
                 {
                     //The Army tries to move into invalid index, therefore does not move and only loses energy
-                    armor -= 1;
+
                     outputIndexes[0] = oldRow;
                     outputIndexes[1] = oldCol;
                 }
@@ -124,15 +129,15 @@ namespace TheBattleOfTheFiveArmies
 
         }
 
-        public static int[] FindArmyPosition(char[,] matrix)
+        public static int[] FindArmyPosition(char[][] matrix)
         {
             int rowIndex = int.MinValue;
             int colIndex = int.MinValue;
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                for (int j = 0; j < matrix.GetLength(1); j++)
+                for (int j = 0; j < matrix[i].Length; j++)
                 {
-                    if (matrix[i, j] == 'A')
+                    if (matrix[i][j] == 'A')
                     {
                         rowIndex = i;
                         colIndex = j;
@@ -142,20 +147,15 @@ namespace TheBattleOfTheFiveArmies
             return new int[] { rowIndex, colIndex };
         }
 
-        public static void FillDataIntoMatrix(char[,] matrix, int rows, int cols)
+        public static void FillDataIntoMatrix(char[][] matrix, int rows)
         {
             for (int i = 0; i < rows; i++)
             {
-                char[] input = Console.ReadLine().ToCharArray();
-                for (int j = 0; j < cols; j++)
-                {
-                    matrix[i, j] = input[j];
-                }
+                matrix[i] = Console.ReadLine().ToCharArray();
 
             }
         }
 
-
-
     }
 }
+
