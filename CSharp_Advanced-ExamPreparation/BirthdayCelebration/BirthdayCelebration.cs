@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace BirthdayCelebration
 {
-    internal class Program
+    internal class BirthdayCelebration
     {
         static void Main(string[] args)
         {

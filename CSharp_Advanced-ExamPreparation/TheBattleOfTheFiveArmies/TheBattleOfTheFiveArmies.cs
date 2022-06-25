@@ -2,7 +2,7 @@
 
 namespace TheBattleOfTheFiveArmies
 {
-    internal class Program
+    internal class TheBattleOfTheFiveArmies
     {
         static void Main(string[] args)
         {
