@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoxData", "BoxData\BoxData.csproj", "{23DA7406-75FB-4D65-922D-1079A9B109E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingSpree", "ShoppingSpree\ShoppingSpree.csproj", "{937E2C20-32AB-420D-81EA-F078A106B387}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{23DA7406-75FB-4D65-922D-1079A9B109E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23DA7406-75FB-4D65-922D-1079A9B109E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23DA7406-75FB-4D65-922D-1079A9B109E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{937E2C20-32AB-420D-81EA-F078A106B387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{937E2C20-32AB-420D-81EA-F078A106B387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{937E2C20-32AB-420D-81EA-F078A106B387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{937E2C20-32AB-420D-81EA-F078A106B387}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
