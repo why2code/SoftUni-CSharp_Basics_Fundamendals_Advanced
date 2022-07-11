@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceIPerson", "InterfaceIPerson\InterfaceIPerson.csproj", "{12247773-08F7-4D15-A95C-AF4084BF8943}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleImplementation", "MultipleImplementation\MultipleImplementation.csproj", "{B3BE995A-B2DC-4537-85A0-42E64D627EA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{12247773-08F7-4D15-A95C-AF4084BF8943}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12247773-08F7-4D15-A95C-AF4084BF8943}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12247773-08F7-4D15-A95C-AF4084BF8943}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3BE995A-B2DC-4537-85A0-42E64D627EA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3BE995A-B2DC-4537-85A0-42E64D627EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3BE995A-B2DC-4537-85A0-42E64D627EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3BE995A-B2DC-4537-85A0-42E64D627EA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
