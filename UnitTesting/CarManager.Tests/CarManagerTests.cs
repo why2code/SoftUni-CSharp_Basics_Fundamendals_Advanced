@@ -14,8 +14,7 @@ namespace CarManager.Tests
             Car currentCar = new Car(make, model, fuelConsumption, fuelCapacity);
             Car expectedCar = new Car("Toyota", "Yaris", 5, 60);
 
-            double currCarfuelAmount = currentCar.FuelAmount;
-            double expectedCarfuelAmount = expectedCar.FuelAmount;
+            
             string currCarMake = currentCar.Make;
             string expectedCarMake = expectedCar.Make;
             string currCarModel = currentCar.Model;
@@ -26,7 +25,7 @@ namespace CarManager.Tests
             double expectedCarFuelCapacity = expectedCar.FuelCapacity;
 
             //Assert.AreEqual(expectedCarfuelAmount, currCarfuelAmount, "FuelAmount should be set to 0 by default and should match.");
-            Assert.That(currentCar.FuelAmount.Equals(0));
+            Assert.AreEqual(0, currentCar.FuelAmount);
             Assert.AreEqual(expectedCarMake, currCarMake, "Makes should be matching.");
             Assert.AreEqual(expectedCarModel, currCarModel, "Models should be matching.");
             Assert.AreEqual(expectedCarFuelConsumption, currCarFuelConsumption, "Consumption should be matching.");
@@ -68,6 +67,7 @@ namespace CarManager.Tests
         }
 
 
+        [TestCase("Kia", "Sportage", 10, -0)]
         [TestCase("Kia", "Sportage", 10, 0)]
         [TestCase("BMW", "M5", 15, -43)]
         [TestCase("BMW", "X6", 18, -28.5)]
@@ -127,6 +127,7 @@ namespace CarManager.Tests
 
 
         [TestCase(0)]
+        [TestCase(-0)]
         [TestCase(-5)]
         [TestCase(-45.5)]
         public void RefuelingAmountCannotBeZeroOrNegative(double fuel)
