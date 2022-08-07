@@ -19,7 +19,7 @@ namespace CarRacing.Repositories
         }
         public void Add(ICar model)
         {
-            if (model == null)
+            if (model is null)
             {
                 throw new ArgumentException(ExceptionMessages.InvalidAddCarRepository);
             }

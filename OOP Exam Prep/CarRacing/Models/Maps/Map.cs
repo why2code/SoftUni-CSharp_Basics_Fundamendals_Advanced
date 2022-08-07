@@ -28,6 +28,9 @@ namespace CarRacing.Models.Maps
             }
             else
             {
+                racerOne.Race();
+                racerTwo.Race();
+
                 string racerOneDrivingBehaviour = racerOne.RacingBehavior;
                 string racerTwoDrivingBehaviour = racerTwo.RacingBehavior;
 

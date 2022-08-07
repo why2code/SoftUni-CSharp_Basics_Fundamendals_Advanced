@@ -53,8 +53,7 @@ namespace CarRacing.Models.Cars
             get => this.vin;
             private set
             {
-                string x = value;
-                if (x.Length != 17)
+                if (value.Length != 17)
                 {
                     throw new ArgumentException(ExceptionMessages.InvalidCarVIN);
                 }

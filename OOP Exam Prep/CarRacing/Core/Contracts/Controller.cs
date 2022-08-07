@@ -50,12 +50,12 @@ namespace CarRacing.Core.Contracts
         public string AddRacer(string type, string username, string carVIN)
         {
             ICar car = cars.FindBy(carVIN);
-            if (car == null)
+            if (car is null)
             {
                 throw new ArgumentException(ExceptionMessages.CarCannotBeFound);
             }
 
-            IRacer racer = null;
+            IRacer racer;
             if (type == "ProfessionalRacer")
             {
                 racer = new ProfessionalRacer(username, car);
@@ -76,13 +76,13 @@ namespace CarRacing.Core.Contracts
         public string BeginRace(string racerOneUsername, string racerTwoUsername)
         {
             IRacer racerOne = this.racers.FindBy(racerOneUsername);
-            if (racerOne == null)
+            if (racerOne is null)
             {
                 throw new ArgumentException(string.Format(ExceptionMessages.RacerCannotBeFound, racerOneUsername));
             }
 
             IRacer racerTwo = this.racers.FindBy(racerTwoUsername);
-            if (racerTwo == null)
+            if (racerTwo is null)
             {
                 throw new ArgumentException(string.Format(ExceptionMessages.RacerCannotBeFound, racerTwoUsername));
             }
@@ -94,7 +94,11 @@ namespace CarRacing.Core.Contracts
         public string Report()
         {
             StringBuilder sb = new StringBuilder();
-            foreach (var racer in this.racers.Models.OrderByDescending(x => x.DrivingExperience).ThenBy(x => x.Username))
+            var racersOrderedAsRequired = this.racers.Models
+                .OrderByDescending(x => x.DrivingExperience)
+                .ThenBy(n => n.Username);
+
+            foreach (var racer in racersOrderedAsRequired)
             {
                 sb.AppendLine(racer.ToString());
             }

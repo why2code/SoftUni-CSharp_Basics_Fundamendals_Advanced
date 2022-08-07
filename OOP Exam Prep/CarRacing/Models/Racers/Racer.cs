@@ -66,7 +66,7 @@ namespace CarRacing.Models.Racers
             get => this.car;
             private set
             {
-                if (value == null)
+                if (value is null)
                 {
                     throw new ArgumentException(ExceptionMessages.InvalidRacerCar);
                 }
@@ -75,13 +75,12 @@ namespace CarRacing.Models.Racers
 
         }
 
-        public abstract void Race();
-        //{
-        //    this.Car.Drive();
-        //    this.DrivingExperience += modifierDrivingExperience;
-        //}
+        public virtual void Race()
+        {
+            this.Car.Drive();
+        }
 
-        public bool IsAvailable() => this.Car.FuelAvailable >= this.Car.FuelConsumptionPerRace; //correct logic?
+    public bool IsAvailable() => this.Car.FuelAvailable >= this.Car.FuelConsumptionPerRace; //correct logic?
 
         public override string ToString()
         {
