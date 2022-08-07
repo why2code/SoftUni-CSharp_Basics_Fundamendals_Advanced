@@ -14,9 +14,6 @@ namespace CarRacing.Models.Cars
         private int horsepower;
         private double fuelavailable;
         private double fuelconsumptionperrace;
-        //protected double horsepowerReductionModifier;
-
-
 
         protected Car(string make, string model, string VIN, int horsePower, double fuelAvailable, double fuelConsumptionPerRace)
         {
@@ -26,7 +23,6 @@ namespace CarRacing.Models.Cars
             this.HorsePower = horsePower;
             this.FuelAvailable = fuelAvailable;
             this.FuelConsumptionPerRace = fuelConsumptionPerRace;
-            //this.horsepowerReductionModifier = 0;
         }
         public string Make
         {
@@ -104,8 +100,6 @@ namespace CarRacing.Models.Cars
         public virtual void Drive()
         {
             this.FuelAvailable -= this.FuelConsumptionPerRace;
-            //double result = (Math.Ceiling(this.HorsePower  - (this.HorsePower * horsepowerReductionModifier)));
-            //this.HorsePower = (int)result;
         }
     }
 }
