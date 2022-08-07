@@ -12,13 +12,12 @@ namespace CarRacing.Models.Racers
         public StreetRacer(string username, ICar car) 
             : base(username, RacingBehaviourStartingValueForStreetRacer, DrivingExperienceStartingValueForStreetRacer, car)
         {
-            //this.modifierDrivingExperience = 5;
         }
 
         public override void Race()
         {
             this.Car.Drive();
-            this.DrivingExperience += 10;
+            this.DrivingExperience += 5;
         }
     }
 }

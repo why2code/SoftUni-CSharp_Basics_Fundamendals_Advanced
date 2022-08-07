@@ -18,7 +18,7 @@ namespace CarRacing.Models.Cars
         public override void Drive()
         {
             base.Drive();
-            this.HorsePower -= (int)Math.Ceiling(HorsePower * TunedCarModifierForEngineWear); //is it Round or Ceiling?
+            this.HorsePower -= (int)(HorsePower * TunedCarModifierForEngineWear); //is it Round or Ceiling?
 
         }
 

@@ -86,11 +86,11 @@ namespace CarRacing.Models.Racers
         public override string ToString()
         {
             StringBuilder text = new StringBuilder();
-            text.AppendLine($"{this.GetType().Name}: {Username}");
-            text.AppendLine($"--Driving behavior: {RacingBehavior}");
-            text.AppendLine($"--Driving experience: {DrivingExperience}");
-            text.AppendLine($"--Car: {Car.Make} {Car.Model} ({Car.VIN})");
-            return text.ToString().Trim();
+            text.AppendLine($"{this.GetType().Name}: {this.Username}");
+            text.AppendLine($"--Driving behavior: {this.RacingBehavior}");
+            text.AppendLine($"--Driving experience: {this.DrivingExperience}");
+            text.AppendLine($"--Car: {this.Car.Make} {this.Car.Model} ({this.Car.VIN})");
+            return text.ToString().TrimEnd();
         }
 
     }

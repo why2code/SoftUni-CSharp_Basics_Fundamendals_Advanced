@@ -12,7 +12,6 @@ namespace CarRacing.Models.Racers
         public ProfessionalRacer(string username, ICar car) 
             : base(username, RacingBehaviourStartingValueForProfessionalRacer, DrivingExperienceStartingValueForProfessionalRacer, car)
         {
-            //this.modifierDrivingExperience = 10;
         }
 
 
