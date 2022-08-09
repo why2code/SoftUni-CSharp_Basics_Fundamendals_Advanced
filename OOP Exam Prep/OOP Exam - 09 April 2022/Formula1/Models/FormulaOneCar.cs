@@ -57,7 +57,7 @@ namespace Formula1.Models
         public double RaceScoreCalculator(int laps)
         {
             //engine displacement / horsepower * laps
-            return this.EngineDisplacement / this.Horsepower * laps; //Weid formula
+            return this.EngineDisplacement / this.Horsepower * laps; //Weird formula
         }
     }
 }
