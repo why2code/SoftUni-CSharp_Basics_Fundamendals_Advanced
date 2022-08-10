@@ -10,13 +10,16 @@ namespace Heroes.Models.Map
     {
         public string Fight(ICollection<IHero> players)
         {
-            List<IHero> knightsList = players.Where(p => p.GetType().Name == "Knight").ToList();
-            List<IHero> barbariansList = players.Where(p => p.GetType().Name == "Barbarian").ToList();
+            List<IHero> knightsList = players.Where(p => p.GetType().Name == "Knight").Where(p => p.Weapon != null).ToList();
+            List<IHero> barbariansList = players.Where(p => p.GetType().Name == "Barbarian").Where(p => p.Weapon != null).ToList();
+
 
             int knightCasulties = 0;
             int barbarianCasulties = 0;
+            int availableKnights = knightsList.Count;
+            int availableBarbarians = barbariansList.Count;
 
-            while (knightsList.Count > 0 && barbariansList.Count > 0)
+            while (availableKnights > 0 && availableBarbarians > 0)
             {
                 //Knights attach first!
                 foreach (var knight in knightsList)
@@ -29,7 +32,9 @@ namespace Heroes.Models.Map
                             if (barbarian.IsAlive == false)
                             {
                                 barbarianCasulties++;
-                                barbariansList.Remove(barbarian);
+                                availableBarbarians--;
+                                //barbariansList.Remove(barbarian);
+
                             }
                         }
                     }
@@ -46,7 +51,8 @@ namespace Heroes.Models.Map
                             if (knight.IsAlive == false)
                             {
                                 knightCasulties++;
-                                knightsList.Remove(knight);
+                                availableKnights--;
+                                //knightsList.Remove(knight);
                             }
                         }
                     }

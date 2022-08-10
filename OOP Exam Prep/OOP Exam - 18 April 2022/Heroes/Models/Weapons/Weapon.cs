@@ -37,6 +37,7 @@ namespace Heroes.Models.Weapons
                 {
                     throw new ArgumentException("Durability cannot be below 0.");
                 }
+                this.durability = value;
             }
         }
 

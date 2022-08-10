@@ -15,7 +15,14 @@ namespace Heroes.Models.Weapons
 
         public override int DoDamage()
         {
-            this.Durability--;
+            if (this.Durability - 1 < 0)
+            {
+                this.Durability = 0;
+            }
+            else
+            {
+                this.Durability--;
+            }
             return claymoreDamage;
         }
     }

@@ -7,14 +7,21 @@ namespace Heroes.Models.Weapons
     public class Mace : Weapon
     {
         private static int maceDamage = 25;
-        public Mace(string name, int durability) 
+        public Mace(string name, int durability)
             : base(name, durability)
         {
         }
 
         public override int DoDamage()
         {
-            this.Durability--;
+            if (this.Durability - 1 < 0)
+            {
+                this.Durability = 0;
+            }
+            else
+            {
+                this.Durability--;
+            }
             return maceDamage;
         }
     }
