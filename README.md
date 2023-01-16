@@ -1,4 +1,6 @@
 #Software-Engineering
-At Software University (softuni.bg/)
+At Software University (https://softuni.bg)
 
-C# Programming basics, C# Fundamentals and C# Advanced
+C# Programming basics
+C# Fundamentals
+C# Advanced
